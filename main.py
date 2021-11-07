@@ -2,10 +2,11 @@ from utils.fileFunctions import FileFunctions
 from utils.regexFunctions import RegexFunctions
 from components.featurizer import Featurizer
 
-
 from pprint import pprint
 
-
+def print_dict(dictionary):
+    for k,v in dictionary.items():
+        print(k, ":", v)
 
 
 
@@ -30,12 +31,11 @@ if __name__ == '__main__':
         "longest_string": Featurizer.longest_string(payload),
         "word_distribution": Featurizer.word_distribution(payload),
         "lowercase_alphabet": Featurizer.lowercase_alphabet(payload),
-        
+
     }
 
     print(filename)    
-    for k,v in features.items():
-        print(k, ":", v)
+    print_dict(features)
 
 
 
