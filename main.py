@@ -2,6 +2,7 @@ from utils.fileFunctions import FileFunctions
 from utils.regexFunctions import RegexFunctions
 from components.featurizer import Featurizer
 
+
 from pprint import pprint
 
 def print_dict(dictionary):
@@ -16,11 +17,14 @@ if __name__ == '__main__':
 
     payload = FileFunctions.read_file_whole(filename)
 
+    raw_length = Featurizer.length(payload)
     count_comments = Featurizer.count_comments(payload)
+    
     payload = RegexFunctions.remove_comments(payload)
 
     features = {
-        "raw_length": Featurizer.raw_length(payload),
+        "length": raw_length,
+        "length_no_comments": Featurizer.length(payload),
         "count_lines": Featurizer.count_lines(payload),
         "count_comments": count_comments,
         "count_ticks": Featurizer.count_ticks(payload),
@@ -31,7 +35,9 @@ if __name__ == '__main__':
         "longest_string": Featurizer.longest_string(payload),
         "word_distribution": Featurizer.word_distribution(payload),
         "lowercase_alphabet": Featurizer.lowercase_alphabet(payload),
-
+        "special_characters": Featurizer.special_characters(payload),
+        "special_characters_count": Featurizer.special_characters_count(payload),
+        "bigram_frequency": Featurizer.bigram_frequencies(payload)
     }
 
     print(filename)    
