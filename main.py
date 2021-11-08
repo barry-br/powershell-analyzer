@@ -13,7 +13,7 @@ def print_dict(dictionary):
 
 if __name__ == '__main__':
 
-    filename = "D:\\work\\data\\powershell\\PoshCode\\3c9c5d54-adf5-44bb-bf12-ab18d089e443.ps1"
+    filename = "samples/3c9c5d54-adf5-44bb-bf12-ab18d089e443.ps1"
 
     payload = FileFunctions.read_file_whole(filename)
 
